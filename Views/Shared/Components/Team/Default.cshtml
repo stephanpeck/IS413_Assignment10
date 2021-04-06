@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Teams>
+
+
+<a class="btn btn-block btn-outline-secondary" asp-action="Index" asp-controller="Home" asp-route-teamid="">Home / All Teams</a>
+<br />
+
+@*Dynamic generating buttons for each team name in the database, will increase if more teams are added*@
+
+<div style="column-count:2; border-width:2px">
+    @foreach (var x in Model)
+    {
+        <a class="btn btn-block @(x.TeamName == ViewBag.SelectedTeam ? "btn-primary" : "btn-outline-secondary")"  
+           asp-action="Index" 
+           asp-controller="Home" 
+           asp-route-teamid="@x.TeamId"
+           asp-route-teamname="@x.TeamName"
+           asp-route-pagenum="1"
+           
+           
+           >@x.TeamName</a>
+        <br />
+    }
+</div>

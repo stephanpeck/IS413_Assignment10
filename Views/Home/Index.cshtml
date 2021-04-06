@@ -1,0 +1,64 @@
+﻿@*Stephan Peck
+IS 413
+Assignment 10*@
+
+
+
+@{
+    ViewBag.Title = "Bowling League";
+    ViewBag.SubTitle = "";
+    ViewBag.Background = "/img/bg.jpg";
+}
+
+@model IndexViewModel
+
+
+
+<h2 id="titleName">@Model.BowlingTeam Bowlers</h2>
+<p>Sorted by last name</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col">Address</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col">Phone Number</th>
+
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.Bowlers)
+        {
+
+            <tr>
+                <td>@item.BowlerFirstName</td>
+                <td>@item.BowlerMiddleInit</td>
+                <td>@item.BowlerLastName</td>
+                <td>@item.BowlerAddress</td>
+                <td>@item.BowlerCity</td>
+                <td>@item.BowlerState</td>
+                <td>@item.BowlerZip</td>
+                <td>@item.BowlerPhoneNumber</td>
+                
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+@*<div page-info="@Model.PageNumberingInfo"  page-url-teamname="@Model.BowlingTeam"></div>*@
+
+
+@*Bottom page number buttons*@
+
+<div style="float:right" page-info="@Model.PageNumberingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+     page-class-normal="btn-light" page-url-teamname="@Model.BowlingTeam"
+     page-class-selected="btn-primary"></div>
